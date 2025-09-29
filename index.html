@@ -1,11 +1,49 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <title>안녕하세요!</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Centered PNG</title>
+  <style>
+    /* 전체 화면 검은 배경 */
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000;
+      color: #fff;
+    }
+    /* 가운데 정렬 컨테이너 */
+    .stage {
+      min-height: 100%;
+      display: grid;
+      place-items: center;   /* 가로/세로 중앙 정렬 */
+      padding: 4vmin;        /* 가장자리 여백(반응형) */
+      box-sizing: border-box;
+    }
+    /* 이미지 크기 제어: 화면 넘치지 않도록 */
+    .stage img {
+      max-width: 90vw;
+      max-height: 90vh;
+      height: auto;
+      width: auto;
+      object-fit: contain;   /* 비율 유지 */
+      image-rendering: -webkit-optimize-contrast; /* 고해상도에서 선명도 향상(옵션) */
+      -webkit-user-drag: none; user-select: none; /* 드래그 방지(옵션) */
+    }
+    /* 로딩/에러 대비 문구(접근성) */
+    .alt-text {
+      position: absolute;
+      clip: rect(1px,1px,1px,1px);
+      width: 1px; height: 1px; overflow: hidden;
+    }
+  </style>
 </head>
 <body>
-  <h1>첫 GitHub 홈페이지 🎉</h1>
-  <p>BANANA FACTORY 홈페이지입니다.</p>
+  <div class="stage">
+    <!-- PNG 경로만 바꾸면 됩니다 -->
+    <img src="./assets/hero.png" alt="메인 이미지" />
+    <span class="alt-text">이미지 로딩 중 혹은 표시되지 않음</span>
+  </div>
 </body>
 </html>
